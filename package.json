@@ -1,0 +1,86 @@
+{
+  "name": "async-status",
+  "version": "0.0.0-semantic-release",
+  "description": "A standardized way to express asynchronous state in a synchronous manner.",
+  "repository": "git@github.com:piotr-oles/async-status.git",
+  "license": "MIT",
+  "author": "Piotr Oleś <piotrek.oles@gmail.com>",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "precommit": "lint-staged && yarn build && yarn test",
+    "commit": "./node_modules/.bin/git-cz",
+    "doc": "typedoc --out doc --mode file --ignoreCompilerErrors src",
+    "format": "prettier --write \"src/**/*\"",
+    "lint": "tslint --project tsconfig.json",
+    "semantic-release": "semantic-release",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn build && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,yml,json,md,html}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts,tsx}": [
+      "tslint --fix --project tsconfig.json",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/jest": "^24.0.0",
+    "commitlint": "^8.0.0",
+    "git-cz": "^3.0.1",
+    "husky": "^3.0.5",
+    "jest": "^24.1.0",
+    "jest-haste-map": "^24.4.0",
+    "jest-resolve": "^24.4.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.15.3",
+    "rollup": "^1.0.2",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.24.1",
+    "semantic-release": "^16.0.0-beta.18",
+    "ts-jest": "^24.0.0",
+    "tslib": "^1.9.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.5"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  }
+}
