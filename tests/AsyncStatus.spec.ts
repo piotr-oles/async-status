@@ -6,15 +6,19 @@ describe("AsyncStatus", () => {
 
     expect(ALL).toEqual([undefined, "PENDING", "RESOLVED", "REJECTED"]);
     expect(() => {
+      // @ts-ignore
       AsyncStatus.IDLE = "PENDING";
     }).toThrow();
     expect(() => {
+      // @ts-ignore
       AsyncStatus.PENDING = "RESOLVED";
     }).toThrow();
     expect(() => {
+      // @ts-ignore
       AsyncStatus.RESOLVED = "REJECTED";
     }).toThrow();
     expect(() => {
+      // @ts-ignore
       AsyncStatus.REJECTED = undefined;
     }).toThrow();
     expect(AsyncStatus.IDLE).toBeUndefined();
@@ -26,6 +30,7 @@ describe("AsyncStatus", () => {
   it("should export AsyncStatus object which has immutable method all", () => {
     expect(AsyncStatus.all).toBeInstanceOf(Function);
     expect(() => {
+      // @ts-ignore
       AsyncStatus.all = () => undefined;
     }).toThrow();
   });

@@ -7,6 +7,7 @@
   "author": "Piotr Oleś <piotrek.oles@gmail.com>",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "precommit": "lint-staged && yarn build && yarn test",
