@@ -5,6 +5,6 @@ const ALL = Object.keys(AsyncStatus).map(
   key => AsyncStatus[key as keyof typeof AsyncStatus]
 );
 
-export function isAsyncStatus(status: any): status is AsyncStatus {
-  return ALL.indexOf(status) !== -1;
+export function isAsyncStatus(candidate: any): candidate is AsyncStatus {
+  return ALL.indexOf(candidate) !== -1;
 }
