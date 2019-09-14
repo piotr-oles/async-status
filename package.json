@@ -15,7 +15,8 @@
     "format": "prettier --write \"src/**/*\"",
     "lint": "tslint --project tsconfig.json",
     "semantic-release": "semantic-release",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
@@ -52,6 +53,7 @@
     "@commitlint/config-conventional": "^8.0.0",
     "@types/jest": "^24.0.0",
     "commitlint": "^8.0.0",
+    "coveralls": "^3.0.6",
     "git-cz": "^3.0.1",
     "husky": "^3.0.5",
     "jest": "^24.1.0",
@@ -63,7 +65,7 @@
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.24.1",
-    "semantic-release": "^16.0.0-beta.18",
+    "semantic-release": "^16.0.0-beta.24",
     "ts-jest": "^24.0.0",
     "tslib": "^1.9.3",
     "tslint": "^5.12.0",
