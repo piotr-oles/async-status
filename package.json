@@ -8,6 +8,9 @@
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rollup -c",
     "precommit": "lint-staged && yarn build && yarn test",
