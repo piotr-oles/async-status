@@ -1,5 +1,4 @@
-import { isAsyncStatus } from "../src";
-import { AsyncStatus } from "../src/AsyncStatus";
+import AsyncStatus, { isAsyncStatus } from "../src";
 
 describe("isAsyncStatus", () => {
   it("should export isAsyncStatus function", () => {
