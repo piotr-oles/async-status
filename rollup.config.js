@@ -4,47 +4,45 @@ const cleaner = require("rollup-plugin-cleaner");
 const path = require("path");
 const process = require("process");
 
-const pkg = {
-  path: process.cwd(),
-  meta: require(path.join(process.cwd(), "package.json"))
-};
+const pkg = require(path.join(process.cwd(), "package.json"));
 
-if (!pkg.meta.main) {
+if (!pkg.main) {
   throw new Error(
     'Missing "main" key in package.json - cannot compile CommonJS module.'
   );
 }
 
-if (!pkg.meta.module) {
+if (!pkg.module) {
   throw new Error(
     'Missing "module" key in package.json - cannot compile ES6 module.'
   );
 }
 
 export default {
-  input: pkg.path + "/src/index.ts",
+  input: process.cwd() + "/src/index.ts",
   output: [
     {
-      file: pkg.path + "/" + pkg.meta.main,
-      format: "cjs"
+      file: process.cwd() + "/" + pkg.main,
+      format: "cjs",
+      exports: "named"
     },
     {
-      file: pkg.path + "/" + pkg.meta.module,
-      format: "esm"
+      file: process.cwd() + "/" + pkg.module,
+      format: "esm",
+      exports: "named"
     }
   ],
   external: Object.keys(
-    Object.assign(pkg.meta.peerDependencies || {}, pkg.meta.dependencies || {})
+    Object.assign({}, pkg.peerDependencies || {}, pkg.dependencies || {})
   ),
   plugins: [
     cleaner({
       targets: [
-        path.dirname(pkg.path + "/" + pkg.meta.main),
-        path.dirname(pkg.path + "/" + pkg.meta.module)
+        path.dirname(process.cwd() + "/" + pkg.main),
+        path.dirname(process.cwd() + "/" + pkg.module)
       ]
     }),
     typescript({
-      objectHashIgnoreUnknownHack: true,
       clean: true,
       tsconfigOverride: {
         include: ["./src/**/*"],
