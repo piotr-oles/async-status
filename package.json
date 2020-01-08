@@ -59,7 +59,7 @@
     "commitlint": "^8.3.4",
     "coveralls": "^3.0.9",
     "git-cz": "^3.3.0",
-    "husky": "^4.0.1",
+    "husky": "^3.0.0",
     "jest": "^24.1.0",
     "jest-haste-map": "^24.4.0",
     "jest-resolve": "^24.4.0",
