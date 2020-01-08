@@ -11,6 +11,7 @@
   "files": [
     "lib"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
     "precommit": "lint-staged && yarn build && yarn test",
@@ -53,27 +54,27 @@
     "testEnvironment": "jsdom"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^8.0.0",
-    "@types/jest": "^24.0.0",
-    "commitlint": "^8.0.0",
-    "coveralls": "^3.0.6",
-    "git-cz": "^3.0.1",
-    "husky": "^3.0.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^24.0.25",
+    "commitlint": "^8.3.4",
+    "coveralls": "^3.0.9",
+    "git-cz": "^3.3.0",
+    "husky": "^4.0.1",
     "jest": "^24.1.0",
     "jest-haste-map": "^24.4.0",
     "jest-resolve": "^24.4.0",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.15.3",
-    "rollup": "^1.0.2",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "rollup": "^1.29.0",
     "rollup-plugin-cleaner": "^1.0.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.24.1",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "semantic-release": "^16.0.0-beta.24",
-    "ts-jest": "^24.0.0",
+    "ts-jest": "^24.3.0",
     "tslib": "^1.9.3",
-    "tslint": "^5.12.0",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.7.4"
   },
   "release": {
     "branches": [
